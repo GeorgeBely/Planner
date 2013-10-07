@@ -10,6 +10,7 @@ public class MessageAgent implements Serializable {
                 new ObjectOutputStream(new FileOutputStream(MessageAgent.valuesFile)).writeObject(0);
 
         new MessageFrame().start();
+
 //        while (true) {
 //            if (MessageFrame.frame != null) {
                 new Timer().start();

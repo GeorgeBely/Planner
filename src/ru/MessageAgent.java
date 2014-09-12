@@ -11,12 +11,12 @@ public class MessageAgent implements Serializable {
 
         new MessageFrame().start();
 
-//        while (true) {
-//            if (MessageFrame.frame != null) {
+        while (true) {
+            if (MessageFrame.frame != null) {
                 new Timer().start();
                 new Clock().start();
-//                break;
-//            }
-//        }
+                break;
+            }
+        }
     }
 }

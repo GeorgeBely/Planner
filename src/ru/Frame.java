@@ -1,111 +1,121 @@
 package ru;
+
+import ru.planner.services.ImagesService;
+import ru.planner.services.SaveDataService;
+import ru.planner.utils.DateUtils;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.Serializable;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
-class Frame extends JFrame implements Serializable {
+class Frame extends JFrame {
 
-    private int Width;
-    private int Height;
-    private int screenWidth;
-    private int screenHeight;
-    private int count;
-    public static int p ;
-    public static int point;
-    private JPanel panel;
+    /** Высота окна. */
+    private static final int WIDTH = 550;
+
+    /** Ширина окна. */
+    private static final int HEIGHT = 300;
+
+
     private JFormattedTextField date;
-    public static TextArea text;
+    private JTextArea text;
 
-    public Frame() throws IOException, ClassNotFoundException {
-        Width = 500;
-        Height = 260;
+
+    public Frame() {
         Toolkit kit = Toolkit.getDefaultToolkit();
         Dimension screenSize = kit.getScreenSize();
-        screenWidth = screenSize.width;
-        screenHeight = screenSize.height;
-        setLocation(screenWidth / 2 - Width / 2, screenHeight / 2 - Height / 2);
-        setSize(Width, Height);
+        setLocation(screenSize.width / 2 - WIDTH / 2, screenSize.height / 2 - HEIGHT / 2);
+        setSize(WIDTH, HEIGHT);
         setResizable(false);
-        Image img = kit.getImage("C:\\Workspace\\MassageAgent\\src\\ru\\MassageAgent.png");
-        setIconImage(img);
-        panel = new JPanel();
-        panel.setFocusable(true);
-        panel.setLayout(null);
+        setIconImage(ImagesService.getIcon(this.getClass()));
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setVisible(true);
+
+        JPanel panel = new JPanel() {{
+            setFocusable(true);
+            setLayout(null);
+            setBackground(Color.white);
+        }};
         add(panel);
-        panel.setBackground(Color.white);
-        JButton buttonAdd = new JButton("\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0438");
-        buttonAdd.setBounds(270, 5, 220, 30);
+
+        JButton buttonAdd = new JButton("Добавить задачи") {{
+            setBounds(270, 5, 220, 30);
+        }};
         panel.add(buttonAdd);
-        JButton buttonDate = new JButton("\u041F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0438 \u043D\u0430 \u0434\u0435\u043D\u044C");
-        buttonDate.setBounds(270, 40, 220, 30);
-        panel.add(buttonDate);
-        JButton buttonDelete = new JButton("\u0423\u0434\u0430\u043B\u0438\u0442\u044C/\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443");
-        buttonDelete.setBounds(270, 75, 220, 30);
+
+        JButton buttonViewOnDate = new JButton("Просмотреть задачи на день") {{
+            setBounds(270, 40, 220, 30);
+        }};
+        panel.add(buttonViewOnDate);
+
+        JButton buttonDelete = new JButton("Удалить/Изменить задачу") {{
+            setBounds(270, 75, 220, 30);
+        }};
         panel.add(buttonDelete);
-        JButton buttonVivod = new JButton("\u041F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C \u0432\u0441\u0435 \u0437\u0430\u0434\u0430\u0447\u0438");
-        buttonVivod.setBounds(270, 110, 220, 30);
-        panel.add(buttonVivod);
-        JButton buttonClear = new JButton("\u041E\u0447\u0438\u0441\u0442\u0438\u0442\u044C");
-        buttonClear.setBounds(270, 145, 220, 30);
+
+        JButton buttonView = new JButton("Просмотреть все задачи") {{
+            setBounds(270, 110, 220, 30);
+        }};
+        panel.add(buttonView);
+
+        JButton buttonClear = new JButton("Очистить") {{
+            setBounds(270, 145, 220, 30);
+        }};
         panel.add(buttonClear);
-        text = new TextArea();
-        text.setBounds(5, 5, 260, 220);
-        panel.add(text);
-        JLabel labelDate = new JLabel("\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0434\u0430\u0442\u0443");
-        labelDate.setBounds(300, 180, 210, 15);
+
+        text = new JTextArea() {{
+            setLineWrap(true);
+            setWrapStyleWord(true);
+        }};
+        JScrollPane scrollPane = new JScrollPane() {{
+            setViewportView(text);
+            setBounds(5, 5, 260, 220);
+        }};
+        panel.add(scrollPane);
+
+        JLabel labelDate = new JLabel("Введите дату") {{
+            setBounds(300, 180, 210, 15);
+        }};
         panel.add(labelDate);
-        DateFormat formatdate = DateFormat.getDateInstance(2);
-        formatdate.setLenient(false);
-        date = new JFormattedTextField(formatdate);
-        date.setBounds(350, 195, 105, 20);
-        date.setValue(new Date());
+
+        date = new JFormattedTextField(DateUtils.ONLY_DATE_FORMAT) {{
+            setBounds(350, 195, 105, 20);
+            setValue(new Date());
+        }};
         panel.add(date);
-        try {
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("C:\\Users\\Public\\SavePlans.txt"));
-            p = (Integer) ois.readObject();
-            for (int i = 0; i < p; i++)
-                FrameAdd.massTask[i] = (Message) ois.readObject();
-        } catch (IOException e1) {
-            e1.printStackTrace();
-        }
-        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-        Date datenow = new Date();
-        text.setText("\u0417\u0430\u0434\u0430\u0447\u0438 \u043D\u0430 \u0441\u0435\u0433\u043E\u0434\u043D\u044F:\n");
-        for (int i = 0; i < p; i++)
-            if (FrameAdd.massTask[i].getDate().length() > 10 && FrameAdd.massTask[i].getDate().substring(0, 10).equals(dateFormat.format(datenow))) {
-                text.append((new StringBuilder(String.valueOf(FrameAdd.massTask[i].getDate()))).append(" ").append(FrameAdd.massTask[i].getTheme()).append("\n").append(" ").append(FrameAdd.massTask[i].getText()).append("\n").toString());
+
+        SaveDataService.readData();
+
+        text.setText("Задачи на сегодня:\n");
+        int count = 0;
+        for (Message message : FrameAdd.massTask)
+            if (DateUtils.dateAsOfToday(message.getDate())) {
+                text.append(message.toString());
+                text.append("\n");
                 count++;
             }
         if (count == 0)
-            text.setText("\u041D\u0430 \u0441\u0435\u0433\u043E\u0434\u043D\u044F \u043F\u043B\u0430\u043D\u043E\u0432 \u043D\u0435\u0442.");
+            text.setText("На сегодня планов нет.");
 
         buttonAdd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 EventQueue.invokeLater(new Runnable() {
                     public void run() {
-                        FrameAdd frame = new FrameAdd();
-                        frame.toFront();
-                        frame.setVisible(true);
+                        new FrameAdd();
                     }
                 });
             }
         });
 
-        buttonDate.addActionListener(new ActionListener() {
+        buttonViewOnDate.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Frame.text.setText("");
-
-                for(int i = 0; i < p; i++) {
-                    if(FrameAdd.massTask[i].getDate().substring(0, 10).equals(date.getText())) {
-                        Frame.text.setText(Frame.text.getText() + FrameAdd.massTask[i].getDate() + " " + FrameAdd.massTask[i].getTheme() + "\n" + "          " + FrameAdd.massTask[i].getText() + "\n");
+                text.setText("");
+                for (Message message : FrameAdd.massTask) {
+                    if (DateUtils.dateAsOfStringDay(message.getDate(), date.getText())) {
+                        text.append(message.toString());
+                        text.append("\n");
                     }
                 }
             }
@@ -115,36 +125,32 @@ class Frame extends JFrame implements Serializable {
             public void actionPerformed(ActionEvent e) {
                 EventQueue.invokeLater(new Runnable() {
                     public void run() {
-                        FrameDel frame = new FrameDel();
-                        frame.toFront();
-                        frame.setVisible(true);
+                        new FrameDel();
                     }
                 });
             }
         });
 
-        buttonVivod.addActionListener(new ActionListener() {
+        buttonView.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Frame.text.setText("");
-
-                for(int i = 0; i < p; i++) {
-                    Frame.text.append(FrameAdd.massTask[i].getDate() + " " + FrameAdd.massTask[i].getTheme() + "\n" + "          " + FrameAdd.massTask[i].getText() + "\n");
-                }
-
-                if(Frame.p == 0) {
-                    Frame.text.setText("Нет планов.");
+                if (FrameAdd.massTask.isEmpty()) {
+                    text.setText("Нет планов.");
+                } else {
+                    text.setText("");
+                    for (Message message : FrameAdd.massTask) {
+                        text.append(message.toString());
+                        text.append("\n");
+                    }
                 }
             }
         });
 
         buttonClear.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Frame.text.setText("");
+                text.setText("");
                 EventQueue.invokeLater(new Runnable() {
                     public void run() {
-                        FrameClear frame = new FrameClear();
-                        frame.toFront();
-                        frame.setVisible(true);
+                        new FrameClear();
                     }
                 });
             }

@@ -10,10 +10,10 @@ public class Timer extends Thread {
     }
 
     public void run() {
-        for (i = 0; i < Frame.p + 1; i++) {
+        for (i = 0; i < FrameAdd.massTask.size() + 1; i++) {
             DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
             Date date = new Date();
-            if (FrameAdd.massTask[i] != null && FrameAdd.massTask[i].getTime().equals(dateFormat.format(date)))
+            if (FrameAdd.massTask.get(i) != null && FrameAdd.massTask.get(i).getTime().equals(dateFormat.format(date)))
                 EventQueue.invokeLater(new Runnable(){
                     public void run() {
                         FrameMention frame = new FrameMention();

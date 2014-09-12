@@ -1,9 +1,16 @@
 package ru;
 
 import java.io.Serializable;
+import java.util.Date;
 
-class Message implements Serializable {
-    public Message(String d, String t, String tx, String ti) {
+public class Message implements Serializable {
+
+    private Date date;
+    private String theme;
+    private String text;
+    private String time;
+
+    public Message(Date d, String t, String tx, String ti) {
         date = d;
         theme = t;
         text = tx;
@@ -14,7 +21,7 @@ class Message implements Serializable {
         return time;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
@@ -26,8 +33,8 @@ class Message implements Serializable {
         return text;
     }
 
-    private String date;
-    private String theme;
-    private String text;
-    private String time;
+
+    public String toString() {
+        return date.toString() + " " + theme + "\n " + text + "\n";
+    }
 }

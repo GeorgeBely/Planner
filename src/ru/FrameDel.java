@@ -31,6 +31,8 @@ class FrameDel extends JFrame {
         setSize(Width, Height);
         setTitle(name);
         setResizable(false);
+        toFront();
+        setVisible(true);
         Image img = kit.getImage("C:\\Workspace\\MassageAgent\\src\\ru\\Delete.png");
         setIconImage(img);
         panel = new JPanel();
@@ -60,11 +62,11 @@ class FrameDel extends JFrame {
         panel.add(buttonClose);
         text.setText("");
 
-        for (int i = 0; i < Frame.p; i++)
+        for (int i = 0; i < FrameAdd.massTask.size(); i++)
             text.setText((new StringBuilder(String.valueOf(text.getText()))).append(i + 1).append(": ")
-                    .append(FrameAdd.massTask[i].getDate()).append(" ")
-                    .append(FrameAdd.massTask[i].getTheme()).append("\n").append(" ")
-                    .append(FrameAdd.massTask[i].getText()).append("\n").toString());
+                    .append(FrameAdd.massTask.get(i).getDate()).append(" ")
+                    .append(FrameAdd.massTask.get(i).getTheme()).append("\n").append(" ")
+                    .append(FrameAdd.massTask.get(i).getText()).append("\n").toString());
 
 
         buttonChange.addActionListener(new ActionListener() {
@@ -84,30 +86,25 @@ class FrameDel extends JFrame {
 
         buttonDel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(Integer.parseInt(textNum.getText()) < Frame.p) {
+                if(Integer.parseInt(textNum.getText()) < FrameAdd.massTask.size()) {
 //                    FrameDel.access$0(this.this$0, );
 
-                    for(int i = Integer.parseInt(textNum.getText()); i < Frame.p-1; i++) {
-                        FrameAdd.massTask[i] = FrameAdd.massTask[i+1];
+                    for(int i = Integer.parseInt(textNum.getText()); i < FrameAdd.massTask.size()-1; i++) {
+                        FrameAdd.massTask.set(i, FrameAdd.massTask.get(i+1));
 //                        FrameDel.access$0(this.this$0, FrameDel.access$1(this.this$0) + 1);
                     }
                 }
 
                 text.setText("");
-                Frame.p = Frame.p - 1;
 
-                for(int i = 0; i < Frame.p; i++) {
-                    text.setText(text.getText() + i + ": " + FrameAdd.massTask[i].getDate() + " " + FrameAdd.massTask[i].getTheme() + "\n" + "          " + FrameAdd.massTask[i].getText() + "\n");
+                for(int i = 0; i < FrameAdd.massTask.size(); i++) {
+                    text.setText(text.getText() + i + ": " + FrameAdd.massTask.get(i).getDate() + " " + FrameAdd.massTask.get(i).getTheme() + "\n" + "          " + FrameAdd.massTask.get(i).getText() + "\n");
 //                    FrameDel.access$0(this.this$0, FrameDel.access$1(this.this$0) + 1);
                 }
 
                 try {
                     ObjectOutputStream e1 = new ObjectOutputStream(new FileOutputStream("C:\\Users\\Public\\SavePlans.txt"));
-                    e1.writeObject(Frame.p);
-
-                    for(int i = 0; i < Frame.p; ++i) {
-                        e1.writeObject(FrameAdd.massTask[i]);
-                    }
+                    e1.writeObject(FrameAdd.massTask);
                 } catch (IOException var4) {
                     var4.printStackTrace();
                 }

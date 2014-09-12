@@ -28,6 +28,8 @@ class FrameClear extends JFrame {
         setSize(Width, Height);
         setTitle(name);
         setResizable(false);
+        toFront();
+        setVisible(true);
         Image img = kit.getImage("C:\\Workspace\\MassageAgent\\src\\ru\\Clear.jpg");
         setIconImage(img);
         panel = new JPanel();
@@ -48,16 +50,14 @@ class FrameClear extends JFrame {
         buttonOK.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                for (int i = 0; i < Frame.p; i++) FrameAdd.massTask[i] = null;
-                Frame.p = Integer.valueOf(0);
-                dispose();
+                FrameAdd.massTask.clear();
                 try {
                     ObjectOutputStream bin = new ObjectOutputStream(new FileOutputStream("C:\\Users\\Public\\SavePlans.txt"));
-                    bin.writeObject(Frame.p);
-                    for (int i = 0; i < Frame.p; i++) bin.writeObject(FrameAdd.massTask[i]);
+                    bin.writeObject(FrameAdd.massTask);
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
+                dispose();
             }
         });
         buttonClose.addActionListener(new ActionListener() {

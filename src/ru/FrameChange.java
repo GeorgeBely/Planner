@@ -81,23 +81,23 @@ class FrameChange extends JFrame {
 
         buttonOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if (!FrameChange.theme.getText().equals("")) {
-                    FrameChange.massTask[Frame.p] = new Message(FrameChange.date.getText(), FrameChange.theme.getText(), FrameChange.text.getText(), FrameChange.time.getText());
-                    Frame.p = Integer.valueOf(Frame.p + 1);
-                    DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
-                    Date datenow = new Date();
-                    FrameChange.date.setText(FrameChange.massTask[FrameDel.number].getDate());
-                    FrameChange.time.setText(dateFormat.format(datenow));
-                    FrameChange.text.setText("");
-                    FrameChange.theme.setText("");
-                    try {
-                        ObjectOutputStream bin = new ObjectOutputStream(new FileOutputStream("C:\\Users\\Public\\SavePlans.txt"));
-                        bin.writeObject(Frame.p);
-                        for (int i = 0; i < Frame.p; i++) bin.writeObject(FrameChange.massTask[i]);
-                    } catch (IOException e1) {
-                        e1.printStackTrace();
-                    }
-                }
+//                if (!FrameChange.theme.getText().equals("")) {
+//                    FrameChange.massTask[Frame.p] = new Message(FrameChange.date.getText(), FrameChange.theme.getText(), FrameChange.text.getText(), FrameChange.time.getText());
+//                    Frame.p = Integer.valueOf(Frame.p + 1);
+//                    DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+//                    Date datenow = new Date();
+//                    FrameChange.date.setText(FrameChange.massTask[FrameDel.number].getDate());
+//                    FrameChange.time.setText(dateFormat.format(datenow));
+//                    FrameChange.text.setText("");
+//                    FrameChange.theme.setText("");
+//                    try {
+//                        ObjectOutputStream bin = new ObjectOutputStream(new FileOutputStream("C:\\Users\\Public\\SavePlans.txt"));
+//                        bin.writeObject(Frame.p);
+//                        for (int i = 0; i < Frame.p; i++) bin.writeObject(FrameChange.massTask[i]);
+//                    } catch (IOException e1) {
+//                        e1.printStackTrace();
+//                    }
+//                }
             }
         });
 

@@ -24,7 +24,5 @@ public class Clock extends Thread {
             }
         } while (true);
     }
-
-    public static int i;
 }
 

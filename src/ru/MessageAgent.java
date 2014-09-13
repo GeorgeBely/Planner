@@ -5,6 +5,9 @@ import java.util.List;
 
 public class MessageAgent implements Serializable {
 
+    /** При {true} использовать Timer оповещений */
+    public static boolean useTimer = true;
+
     /** Сохранённые задачи */
     public static List<Message> massTask = new ArrayList<Message>();
 

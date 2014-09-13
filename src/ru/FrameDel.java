@@ -64,7 +64,7 @@ class FrameDel extends JFrame {
 
         for (int i = 0; i < MessageAgent.massTask.size(); i++)
             text.setText((new StringBuilder(String.valueOf(text.getText()))).append(i + 1).append(": ")
-                    .append(MessageAgent.massTask.get(i).getDate()).append(" ")
+                    .append(MessageAgent.massTask.get(i).getDatePlan()).append(" ")
                     .append(MessageAgent.massTask.get(i).getTheme()).append("\n").append(" ")
                     .append(MessageAgent.massTask.get(i).getText()).append("\n").toString());
 
@@ -98,7 +98,7 @@ class FrameDel extends JFrame {
                 text.setText("");
 
                 for(int i = 0; i < MessageAgent.massTask.size(); i++) {
-                    text.setText(text.getText() + i + ": " + MessageAgent.massTask.get(i).getDate() + " " + MessageAgent.massTask.get(i).getTheme() + "\n" + "          " + MessageAgent.massTask.get(i).getText() + "\n");
+                    text.setText(text.getText() + i + ": " + MessageAgent.massTask.get(i).getDatePlan() + " " + MessageAgent.massTask.get(i).getTheme() + "\n" + "          " + MessageAgent.massTask.get(i).getText() + "\n");
 //                    FrameDel.access$0(this.this$0, FrameDel.access$1(this.this$0) + 1);
                 }
 

@@ -86,7 +86,7 @@ class FrameChange extends JFrame {
 //                    Frame.p = Integer.valueOf(Frame.p + 1);
 //                    DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
 //                    Date datenow = new Date();
-//                    FrameChange.date.setText(FrameChange.massTask[FrameDel.number].getDate());
+//                    FrameChange.date.setText(FrameChange.massTask[FrameDel.number].getDatePlan());
 //                    FrameChange.time.setText(dateFormat.format(datenow));
 //                    FrameChange.text.setText("");
 //                    FrameChange.theme.setText("");

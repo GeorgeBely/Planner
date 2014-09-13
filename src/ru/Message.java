@@ -1,28 +1,30 @@
 package ru;
 
+import ru.planner.utils.DateUtils;
+
 import java.io.Serializable;
 import java.util.Date;
 
 public class Message implements Serializable {
 
-    private Date date;
+    private Date datePlan;
     private String theme;
     private String text;
-    private String time;
+    private String dateMention;
 
-    public Message(Date d, String t, String tx, String ti) {
-        date = d;
-        theme = t;
-        text = tx;
-        time = ti;
+    public Message(Date datePlan, String theme, String text, String dateMention) {
+        this.datePlan = datePlan;
+        this.theme = theme;
+        this.text = text;
+        this.dateMention = dateMention;
     }
 
-    public String getTime() {
-        return time;
+    public String getDateMention() {
+        return dateMention;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getDatePlan() {
+        return datePlan;
     }
 
     public String getTheme() {
@@ -33,8 +35,7 @@ public class Message implements Serializable {
         return text;
     }
 
-
     public String toString() {
-        return date.toString() + " " + theme + "\n " + text + "\n";
+        return DateUtils.DATE_FORMAT.format(datePlan) + " " + theme + "\n " + text + "\n";
     }
 }

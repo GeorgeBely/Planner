@@ -62,11 +62,11 @@ class FrameDel extends JFrame {
         panel.add(buttonClose);
         text.setText("");
 
-        for (int i = 0; i < FrameAdd.massTask.size(); i++)
+        for (int i = 0; i < MessageAgent.massTask.size(); i++)
             text.setText((new StringBuilder(String.valueOf(text.getText()))).append(i + 1).append(": ")
-                    .append(FrameAdd.massTask.get(i).getDate()).append(" ")
-                    .append(FrameAdd.massTask.get(i).getTheme()).append("\n").append(" ")
-                    .append(FrameAdd.massTask.get(i).getText()).append("\n").toString());
+                    .append(MessageAgent.massTask.get(i).getDate()).append(" ")
+                    .append(MessageAgent.massTask.get(i).getTheme()).append("\n").append(" ")
+                    .append(MessageAgent.massTask.get(i).getText()).append("\n").toString());
 
 
         buttonChange.addActionListener(new ActionListener() {
@@ -86,25 +86,25 @@ class FrameDel extends JFrame {
 
         buttonDel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(Integer.parseInt(textNum.getText()) < FrameAdd.massTask.size()) {
+                if(Integer.parseInt(textNum.getText()) < MessageAgent.massTask.size()) {
 //                    FrameDel.access$0(this.this$0, );
 
-                    for(int i = Integer.parseInt(textNum.getText()); i < FrameAdd.massTask.size()-1; i++) {
-                        FrameAdd.massTask.set(i, FrameAdd.massTask.get(i+1));
+                    for(int i = Integer.parseInt(textNum.getText()); i < MessageAgent.massTask.size()-1; i++) {
+                        MessageAgent.massTask.set(i, MessageAgent.massTask.get(i+1));
 //                        FrameDel.access$0(this.this$0, FrameDel.access$1(this.this$0) + 1);
                     }
                 }
 
                 text.setText("");
 
-                for(int i = 0; i < FrameAdd.massTask.size(); i++) {
-                    text.setText(text.getText() + i + ": " + FrameAdd.massTask.get(i).getDate() + " " + FrameAdd.massTask.get(i).getTheme() + "\n" + "          " + FrameAdd.massTask.get(i).getText() + "\n");
+                for(int i = 0; i < MessageAgent.massTask.size(); i++) {
+                    text.setText(text.getText() + i + ": " + MessageAgent.massTask.get(i).getDate() + " " + MessageAgent.massTask.get(i).getTheme() + "\n" + "          " + MessageAgent.massTask.get(i).getText() + "\n");
 //                    FrameDel.access$0(this.this$0, FrameDel.access$1(this.this$0) + 1);
                 }
 
                 try {
                     ObjectOutputStream e1 = new ObjectOutputStream(new FileOutputStream("C:\\Users\\Public\\SavePlans.txt"));
-                    e1.writeObject(FrameAdd.massTask);
+                    e1.writeObject(MessageAgent.massTask);
                 } catch (IOException var4) {
                     var4.printStackTrace();
                 }

@@ -2,6 +2,7 @@ package ru.planner.utils;
 
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -9,6 +10,9 @@ public class DateUtils {
 
     /** Формат вывода даты без времени */
     public static final DateFormat ONLY_DATE_FORMAT = new SimpleDateFormat("dd.MM.yyyy");
+
+    /** Формат вывода даты с временем */
+    public static final DateFormat DATE_FORMAT = new SimpleDateFormat("dd.MM.yyyy hh.mm");
 
 
     /**
@@ -27,5 +31,13 @@ public class DateUtils {
 
     public static boolean dateAsOfStringDay(Date date, String day) {
         return date != null && ONLY_DATE_FORMAT.format(date).equals(day);
+    }
+
+    public static Date parseDate(String date) {
+        try {
+            return DATE_FORMAT.parse(date);
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

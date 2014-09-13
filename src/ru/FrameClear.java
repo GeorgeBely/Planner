@@ -10,10 +10,10 @@ import javax.swing.*;
 
 public class FrameClear extends JFrame {
 
-    /** Высота окна */
+    /** Ширина окна */
     private static final int WIDTH = 300;
 
-    /** Ширина окна */
+    /** Высота окна */
     private static final int HEIGHT = 100;
 
     /** Наименование фрейма */
@@ -21,8 +21,7 @@ public class FrameClear extends JFrame {
 
 
     public FrameClear() {
-        Toolkit kit = Toolkit.getDefaultToolkit();
-        Dimension screenSize = kit.getScreenSize();
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation(screenSize.width/2 - WIDTH/2, screenSize.height/2 - HEIGHT/2);
         setSize(WIDTH, HEIGHT);
         setTitle(TITLE);
@@ -56,7 +55,7 @@ public class FrameClear extends JFrame {
         buttonOK.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                FrameAdd.massTask.clear();
+                MessageAgent.massTask.clear();
                 DataService.serializableData();
                 dispose();
             }

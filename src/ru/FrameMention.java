@@ -41,8 +41,8 @@ class FrameMention extends JFrame {
         JButton button = new JButton("OK");
         button.setBounds(95, 180, 100, 30);
         panel.add(button);
-        textTheme.setText(FrameAdd.massTask.get(Timer.i).getTheme());
-        text.setText(FrameAdd.massTask.get(Timer.i).getText());
+        textTheme.setText(MessageAgent.massTask.get(Timer.i).getTheme());
+        text.setText(MessageAgent.massTask.get(Timer.i).getText());
 
         button.addActionListener(new ActionListener() {
             @Override

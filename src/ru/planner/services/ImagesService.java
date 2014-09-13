@@ -1,5 +1,6 @@
 package ru.planner.services;
 
+import ru.FrameAdd;
 import ru.FrameClear;
 import ru.Frame;
 
@@ -16,6 +17,7 @@ public class ImagesService {
     private static final Map<Class, String> CLASS_ICON_MAP = new HashMap<Class, String>() {{
         put(Frame.class, "MassageAgent.png");
         put(FrameClear.class, "Clear.jpg");
+        put(FrameAdd.class, "Add.png");
     }};
 
 

@@ -90,7 +90,7 @@ public class Frame extends JFrame {
 
         text.setText("Задачи на сегодня:\n");
         int count = 0;
-        for (Message message : FrameAdd.massTask)
+        for (Message message : MessageAgent.massTask)
             if (DateUtils.dateAsOfToday(message.getDate())) {
                 text.append(message.toString());
                 text.append("\n");
@@ -112,7 +112,7 @@ public class Frame extends JFrame {
         buttonViewOnDate.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 text.setText("");
-                for (Message message : FrameAdd.massTask) {
+                for (Message message : MessageAgent.massTask) {
                     if (DateUtils.dateAsOfStringDay(message.getDate(), date.getText())) {
                         text.append(message.toString());
                         text.append("\n");
@@ -133,11 +133,11 @@ public class Frame extends JFrame {
 
         buttonView.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if (FrameAdd.massTask.isEmpty()) {
+                if (MessageAgent.massTask.isEmpty()) {
                     text.setText("Нет планов.");
                 } else {
                     text.setText("");
-                    for (Message message : FrameAdd.massTask) {
+                    for (Message message : MessageAgent.massTask) {
                         text.append(message.toString());
                         text.append("\n");
                     }

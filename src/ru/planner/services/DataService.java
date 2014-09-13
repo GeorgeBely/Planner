@@ -1,7 +1,7 @@
 package ru.planner.services;
 
-import ru.FrameAdd;
 import ru.Message;
+import ru.MessageAgent;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -18,12 +18,18 @@ public class DataService {
      */
     public static void readData() {
         try {
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(LOCATION_FILE_DATA));
-            FrameAdd.massTask = new ArrayList<Message>();
+            MessageAgent.massTask = new ArrayList<Message>();
+            File dataFile = new File(LOCATION_FILE_DATA);
+            if (!dataFile.exists()) {
+                if (dataFile.createNewFile())
+                    new ObjectOutputStream(new FileOutputStream(dataFile)).writeObject(MessageAgent.massTask);
+                return;
+            }
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(dataFile));
             List list = (List) ois.readObject();
             if (list != null && !list.isEmpty()) {
                 for (Object obj : list)
-                    FrameAdd.massTask.add((Message) obj);
+                    MessageAgent.massTask.add((Message) obj);
             }
         } catch (Exception e1) {
             e1.printStackTrace();
@@ -36,7 +42,7 @@ public class DataService {
     public static void serializableData() {
         try {
             ObjectOutputStream bin = new ObjectOutputStream(new FileOutputStream(LOCATION_FILE_DATA));
-            bin.writeObject(FrameAdd.massTask);
+            bin.writeObject(MessageAgent.massTask);
         } catch (IOException e1) {
             e1.printStackTrace();
         }

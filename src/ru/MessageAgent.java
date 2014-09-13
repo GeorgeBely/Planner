@@ -14,15 +14,14 @@ public class MessageAgent implements Serializable {
     /** Сохранённые задачи */
     public static List<Message> massTask = new ArrayList<Message>();
 
-    public static void main(String args[]) throws IOException {
-        new MessageFrame().start();
+    /** Основной фрейм */
+    public static Frame frame;
 
-        while (true) {
-            if (MessageFrame.frame != null) {
-                new Timer().start();
-                new Clock().start();
-                break;
-            }
-        }
+
+    public static void main(String args[]) throws IOException {
+        frame = new Frame();
+
+        new Timer().start();
+        new Clock().start();
     }
 }

@@ -1,28 +1,20 @@
 package ru;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import ru.planner.utils.DateUtils;
+
 import java.util.Date;
 
-// Referenced classes of package ru: // MassageFrame, Frame
-
 public class Clock extends Thread {
-    public Clock() {
-    }
 
     public void run() {
-        do {
-            DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy EEEE HH:mm:ss");
-            Date date = new Date();
+        while (MessageAgent.useClock) {
             try {
-                MessageFrame.frame.setTitle(dateFormat.format(date));
-            } catch (Exception exception) {
+                MessageFrame.frame.setTitle(DateUtils.DATE_FORMAT_WITH_SECOND.format(new Date()));
+                Thread.sleep(1000L);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            try {
-                Thread.sleep(100L);
-            } catch (Exception exception1) {
-            }
-        } while (true);
+        }
     }
 }
 

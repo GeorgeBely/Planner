@@ -8,6 +8,9 @@ public class MessageAgent implements Serializable {
     /** При {true} использовать Timer оповещений */
     public static boolean useTimer = true;
 
+    /** При {true} отображать время в заголовке программы */
+    public static boolean useClock = true;
+
     /** Сохранённые задачи */
     public static List<Message> massTask = new ArrayList<Message>();
 

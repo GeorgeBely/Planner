@@ -12,7 +12,10 @@ public class DateUtils {
     public static final DateFormat ONLY_DATE_FORMAT = new SimpleDateFormat("dd.MM.yyyy");
 
     /** Формат вывода даты с временем */
-    public static final DateFormat DATE_FORMAT = new SimpleDateFormat("dd.MM.yyyy hh.mm");
+    public static final DateFormat DATE_FORMAT = new SimpleDateFormat("dd.MM.yyyy hh:mm");
+
+    /** Формат вывода даты с секундами */
+    public static final DateFormat DATE_FORMAT_WITH_SECOND = new SimpleDateFormat("dd.MM.yyyy hh:mm:ss");
 
 
     /**

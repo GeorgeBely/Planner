@@ -3,6 +3,7 @@ package ru.planner.services;
 import ru.FrameAdd;
 import ru.FrameClear;
 import ru.Frame;
+import ru.FrameMention;
 
 import java.awt.*;
 import java.util.HashMap;
@@ -18,6 +19,7 @@ public class ImagesService {
         put(Frame.class, "MassageAgent.png");
         put(FrameClear.class, "Clear.jpg");
         put(FrameAdd.class, "Add.png");
+        put(FrameMention.class, "Mention.png");
     }};
 
 

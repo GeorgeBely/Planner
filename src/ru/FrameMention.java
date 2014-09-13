@@ -1,48 +1,54 @@
 package ru;
 
+import ru.planner.services.ImagesService;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-class FrameMention extends JFrame {
-    private int Width;
-    private int Height;
-    private int screenWidth;
-    private int screenHeight;
-    private int i;
-    private String name;
-    private JPanel panel;
+public class FrameMention extends JFrame {
 
-    public FrameMention() {
-        Width = 300;
-        Height = 250;
-        name = "Mention";
-        Toolkit kit = Toolkit.getDefaultToolkit();
-        Dimension screenSize = kit.getScreenSize();
-        screenWidth = screenSize.width;
-        screenHeight = screenSize.height;
-        setLocation(screenWidth / 2 - Width / 2, screenHeight / 2 - Height / 2);
-        setSize(Width, Height);
-        setTitle(name);
+    /** Ширина окна */
+    private static final int WIDTH = 300;
+
+    /** Высота окна */
+    private static final int HEIGHT = 250;
+
+    /** Наименование окна */
+    private static final String TITLE = "Напоминание";
+
+    public FrameMention(final Message message) {
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation(screenSize.width/2 - WIDTH/2, screenSize.height/2 - HEIGHT/2);
+        setSize(WIDTH, HEIGHT);
+        setTitle(TITLE);
         setResizable(false);
-        Image img = kit.getImage("C:\\Workspace\\MassageAgent\\src\\ru\\Mention.png");
-        setIconImage(img);
-        panel = new JPanel();
-        panel.setFocusable(true);
-        panel.setLayout(null);
+        setIconImage(ImagesService.getIcon(this.getClass()));
+        setVisible(true);
+
+        JPanel panel = new JPanel() {{
+            setFocusable(true);
+            setLayout(null);
+        }};
         add(panel);
-        TextField textTheme = new TextField();
-        textTheme.setBounds(25, 5, 245, 20);
+
+        TextField textTheme = new TextField() {{
+            setBounds(25, 5, 245, 20);
+            setText(message.getTheme());
+        }};
         panel.add(textTheme);
-        TextArea text = new TextArea();
-        text.setBounds(15, 35, 265, 140);
+
+        JTextArea text = new JTextArea() {{
+            setBounds(15, 35, 265, 140);
+            setText(message.getText());
+        }};
         panel.add(text);
-        JButton button = new JButton("OK");
-        button.setBounds(95, 180, 100, 30);
+
+        JButton button = new JButton("OK") {{
+            setBounds(95, 180, 100, 30);
+        }};
         panel.add(button);
-        textTheme.setText(MessageAgent.massTask.get(Timer.i).getTheme());
-        text.setText(MessageAgent.massTask.get(Timer.i).getText());
 
         button.addActionListener(new ActionListener() {
             @Override

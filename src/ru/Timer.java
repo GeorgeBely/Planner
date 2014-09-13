@@ -16,7 +16,7 @@ public class Timer extends Thread {
             if (MessageAgent.massTask.get(i) != null && MessageAgent.massTask.get(i).getTime().equals(dateFormat.format(date)))
                 EventQueue.invokeLater(new Runnable(){
                     public void run() {
-                        FrameMention frame = new FrameMention();
+                        FrameMention frame = new FrameMention(MessageAgent.massTask.get(i));
                         frame.toBack();
                         frame.toFront();
                         frame.setVisible(true);

@@ -3,12 +3,11 @@ package ru.planner.services;
 import ru.FrameAdd;
 import ru.Message;
 
-import java.io.FileInputStream;
-import java.io.ObjectInputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SaveDataService {
+public class DataService {
 
     /** Путь к файлу в который происходит синхронизация данных */
     private static final String LOCATION_FILE_DATA = "C:\\Users\\Public\\SavePlans.ma";
@@ -27,6 +26,18 @@ public class SaveDataService {
                     FrameAdd.massTask.add((Message) obj);
             }
         } catch (Exception e1) {
+            e1.printStackTrace();
+        }
+    }
+
+    /**
+     * Сохраняет файл с данными.
+     */
+    public static void serializableData() {
+        try {
+            ObjectOutputStream bin = new ObjectOutputStream(new FileOutputStream(LOCATION_FILE_DATA));
+            bin.writeObject(FrameAdd.massTask);
+        } catch (IOException e1) {
             e1.printStackTrace();
         }
     }

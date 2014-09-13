@@ -1,7 +1,7 @@
 package ru;
 
 import ru.planner.services.ImagesService;
-import ru.planner.services.SaveDataService;
+import ru.planner.services.DataService;
 import ru.planner.utils.DateUtils;
 
 import javax.swing.*;
@@ -10,7 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
 
-class Frame extends JFrame {
+public class Frame extends JFrame {
 
     /** Высота окна. */
     private static final int WIDTH = 550;
@@ -86,7 +86,7 @@ class Frame extends JFrame {
         }};
         panel.add(date);
 
-        SaveDataService.readData();
+        DataService.readData();
 
         text.setText("Задачи на сегодня:\n");
         int count = 0;

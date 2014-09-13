@@ -1,5 +1,8 @@
 package ru.planner.services;
 
+import ru.FrameClear;
+import ru.Frame;
+
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,6 +15,7 @@ public class ImagesService {
     /** Карта в которой записано какая иконка к какому фрейму */
     private static final Map<Class, String> CLASS_ICON_MAP = new HashMap<Class, String>() {{
         put(Frame.class, "MassageAgent.png");
+        put(FrameClear.class, "Clear.jpg");
     }};
 
 

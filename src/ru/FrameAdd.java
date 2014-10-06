@@ -103,7 +103,8 @@ public class FrameAdd extends JFrame {
         buttonOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (!theme.getText().isEmpty()) {
-                    MessageAgent.massTask.add(new Message(DateUtils.parseDate(datePlan.getText()), theme.getText(), text.getText(), dateMention.getText()));
+                    MessageAgent.massTask.add(new Message(DateUtils.parseDate(datePlan.getText()), theme.getText(),
+                                                          text.getText(), dateMention.getText()));
 
                     Date today = new Date();
                     datePlan.setText(DateUtils.DATE_FORMAT.format(today));

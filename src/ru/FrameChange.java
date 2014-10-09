@@ -100,8 +100,8 @@ class FrameChange extends JFrame {
         buttonOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (!theme.getText().equals("")) {
-                    editMessage = new Message(DateUtils.parseDate(datePlan.getText()), theme.getText(),
-                                                              text.getText(), dateMention.getText());
+                    editMessage = new Message(DateUtils.parseDate(datePlan.getText()), theme.getText(), text.getText(),
+                                              DateUtils.parseDate(dateMention.getText()));
 
                     DataService.serializableData();
                     dispose();

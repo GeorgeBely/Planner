@@ -104,7 +104,7 @@ public class FrameAdd extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (!theme.getText().isEmpty()) {
                     MessageAgent.massTask.add(new Message(DateUtils.parseDate(datePlan.getText()), theme.getText(),
-                                                          text.getText(), dateMention.getText()));
+                                                          text.getText(), DateUtils.parseDate(dateMention.getText())));
 
                     Date today = new Date();
                     datePlan.setText(DateUtils.DATE_FORMAT.format(today));

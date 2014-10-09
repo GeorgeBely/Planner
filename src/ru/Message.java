@@ -10,16 +10,16 @@ public class Message implements Serializable {
     private Date datePlan;
     private String theme;
     private String text;
-    private String dateMention;
+    private Date dateMention;
 
-    public Message(Date datePlan, String theme, String text, String dateMention) {
+    public Message(Date datePlan, String theme, String text, Date dateMention) {
         this.datePlan = datePlan;
         this.theme = theme;
         this.text = text;
         this.dateMention = dateMention;
     }
 
-    public String getDateMention() {
+    public Date getDateMention() {
         return dateMention;
     }
 

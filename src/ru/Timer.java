@@ -1,16 +1,19 @@
 package ru;
 
-import ru.planner.utils.DateUtils;
-
 import java.awt.EventQueue;
 import java.util.Date;
 
 public class Timer extends Thread {
 
+    /**
+     * Период через который выполняется процесс. Равен одной секунде.
+     */
+    private static final int SEK = 60000;
+
     public void run() {
         while (MessageAgent.useTimer) {
             for (final Message message : MessageAgent.massTask) {
-                if (message != null && message.getDateMention().equals(DateUtils.DATE_FORMAT.format(new Date()))) {
+                if (message != null && Math.abs(new Date().getTime() - message.getDateMention().getTime()) < SEK/2) {
                     EventQueue.invokeLater(new Runnable() {
                         public void run() {
                             new FrameMention(message);
@@ -19,7 +22,7 @@ public class Timer extends Thread {
                 }
             }
             try {
-                Thread.sleep(60000);
+                Thread.sleep(SEK);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -1,4 +1,8 @@
-package ru;
+package ru.planner.procedures;
+
+import ru.Message;
+import ru.MessageAgent;
+import ru.planner.frames.FrameMention;
 
 import java.awt.EventQueue;
 import java.util.Date;

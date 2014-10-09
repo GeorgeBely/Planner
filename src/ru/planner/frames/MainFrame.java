@@ -1,5 +1,7 @@
-package ru;
+package ru.planner.frames;
 
+import ru.Message;
+import ru.MessageAgent;
 import ru.planner.services.ImagesService;
 import ru.planner.services.DataService;
 import ru.planner.utils.DateUtils;
@@ -10,7 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
 
-public class Frame extends JFrame {
+public class MainFrame extends JFrame {
 
     /** Высота окна. */
     private static final int WIDTH = 550;
@@ -23,7 +25,7 @@ public class Frame extends JFrame {
     private JTextArea text;
 
 
-    public Frame() {
+    public MainFrame() {
         Toolkit kit = Toolkit.getDefaultToolkit();
         Dimension screenSize = kit.getScreenSize();
         setLocation(screenSize.width / 2 - WIDTH / 2, screenSize.height / 2 - HEIGHT / 2);

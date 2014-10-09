@@ -1,5 +1,7 @@
-package ru;
+package ru.planner.frames;
 
+import ru.Message;
+import ru.MessageAgent;
 import ru.planner.services.DataService;
 import ru.planner.services.ImagesService;
 

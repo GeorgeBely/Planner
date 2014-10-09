@@ -1,7 +1,7 @@
 package ru.planner.services;
 
-import ru.*;
-import ru.Frame;
+import ru.planner.frames.*;
+import ru.planner.frames.MainFrame;
 
 import java.awt.*;
 import java.util.HashMap;
@@ -14,7 +14,7 @@ public class ImagesService {
 
     /** Карта в которой записано какая иконка к какому фрейму */
     private static final Map<Class, String> CLASS_ICON_MAP = new HashMap<Class, String>() {{
-        put(Frame.class, "MassageAgent.png");
+        put(MainFrame.class, "MassageAgent.png");
         put(FrameClear.class, "Clear.jpg");
         put(FrameAdd.class, "Add.png");
         put(FrameMention.class, "Mention.png");

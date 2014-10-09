@@ -1,5 +1,6 @@
-package ru;
+package ru.planner.frames;
 
+import ru.Message;
 import ru.planner.services.ImagesService;
 
 import java.awt.*;

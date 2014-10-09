@@ -1,4 +1,8 @@
 package ru;
+import ru.planner.frames.MainFrame;
+import ru.planner.procedures.Clock;
+import ru.planner.procedures.Timer;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,11 +19,11 @@ public class MessageAgent implements Serializable {
     public static List<Message> massTask = new ArrayList<Message>();
 
     /** Основной фрейм */
-    public static Frame frame;
+    public static MainFrame mainFrame;
 
 
     public static void main(String args[]) throws IOException {
-        frame = new Frame();
+        mainFrame = new MainFrame();
 
         new Timer().start();
         new Clock().start();

@@ -1,9 +1,7 @@
 package ru.planner.services;
 
-import ru.FrameAdd;
-import ru.FrameClear;
+import ru.*;
 import ru.Frame;
-import ru.FrameMention;
 
 import java.awt.*;
 import java.util.HashMap;
@@ -20,6 +18,7 @@ public class ImagesService {
         put(FrameClear.class, "Clear.jpg");
         put(FrameAdd.class, "Add.png");
         put(FrameMention.class, "Mention.png");
+        put(FrameDel.class, "Delete.png");
     }};
 
 

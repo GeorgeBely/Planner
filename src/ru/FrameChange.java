@@ -38,6 +38,8 @@ class FrameChange extends JFrame {
         setTitle(TITLE);
         setResizable(false);
         setIconImage(ImagesService.getIcon(this.getClass()));
+        toFront();
+        setVisible(true);
 
         JPanel panel = new JPanel() {{
             setFocusable(true);

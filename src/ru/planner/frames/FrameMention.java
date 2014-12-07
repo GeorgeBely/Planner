@@ -10,14 +10,14 @@ import javax.swing.*;
 
 public class FrameMention extends JFrame {
 
-    /** Ширина окна */
+    /** РЁРёСЂРёРЅР° РѕРєРЅР° */
     private static final int WIDTH = 300;
 
-    /** Высота окна */
+    /** Р’С‹СЃРѕС‚Р° РѕРєРЅР° */
     private static final int HEIGHT = 250;
 
-    /** Наименование окна */
-    private static final String TITLE = "Напоминание";
+    /** РќР°РёРјРµРЅРѕРІР°РЅРёРµ РѕРєРЅР° */
+    private static final String TITLE = "РќР°РїРѕРјРёРЅР°РЅРёРµ";
 
     public FrameMention(final Message message) {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();

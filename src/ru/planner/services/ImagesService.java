@@ -9,10 +9,10 @@ import java.util.Map;
 
 public class ImagesService {
 
-    /** Расположение иконок */
+    /** Р Р°СЃРїРѕР»РѕР¶РµРЅРёРµ РёРєРѕРЅРѕРє */
     private static final String ICON_LOCATION = "C:\\Workspace\\MassageAgent\\src\\ru\\";
 
-    /** Карта в которой записано какая иконка к какому фрейму */
+    /** РљР°СЂС‚Р° РІ РєРѕС‚РѕСЂРѕР№ Р·Р°РїРёСЃР°РЅРѕ РєР°РєР°СЏ РёРєРѕРЅРєР° Рє РєР°РєРѕРјСѓ С„СЂРµР№РјСѓ */
     private static final Map<Class, String> CLASS_ICON_MAP = new HashMap<Class, String>() {{
         put(MainFrame.class, "MassageAgent.png");
         put(FrameClear.class, "Clear.jpg");
@@ -23,10 +23,10 @@ public class ImagesService {
 
 
     /**
-     * Возврашает иконку для конкретного фрейма.
+     * Р’РѕР·РІСЂР°С€Р°РµС‚ РёРєРѕРЅРєСѓ РґР»СЏ РєРѕРЅРєСЂРµС‚РЅРѕРіРѕ С„СЂРµР№РјР°.
      *
-     * @param frameClass класс фрейма.
-     * @return иконка.
+     * @param frameClass РєР»Р°СЃСЃ С„СЂРµР№РјР°.
+     * @return РёРєРѕРЅРєР°.
      */
     public static Image getIcon(Class frameClass) {
         return Toolkit.getDefaultToolkit().getImage(ICON_LOCATION + CLASS_ICON_MAP.get(frameClass));

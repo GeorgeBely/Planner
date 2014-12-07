@@ -11,14 +11,14 @@ import javax.swing.*;
 
 public class FrameClear extends JFrame {
 
-    /** Ширина окна */
+    /** РЁРёСЂРёРЅР° РѕРєРЅР° */
     private static final int WIDTH = 300;
 
-    /** Высота окна */
+    /** Р’С‹СЃРѕС‚Р° РѕРєРЅР° */
     private static final int HEIGHT = 100;
 
-    /** Наименование фрейма */
-    private static final String TITLE = "Очистить";
+    /** РќР°РёРјРµРЅРѕРІР°РЅРёРµ С„СЂРµР№РјР° */
+    private static final String TITLE = "РћС‡РёСЃС‚РёС‚СЊ";
 
 
     public FrameClear() {
@@ -37,17 +37,17 @@ public class FrameClear extends JFrame {
         }};
         add(panel);
 
-        JLabel label = new JLabel("Вы действительно хотите удалить все задачи?") {{
+        JLabel label = new JLabel("Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ РІСЃРµ Р·Р°РґР°С‡Рё?") {{
             setBounds(5, 5, 290, 15);
         }};
         panel.add(label);
 
-        JButton buttonOK = new JButton("Да") {{
+        JButton buttonOK = new JButton("Р”Р°") {{
             setBounds(60, 30, 80, 30);
         }};
         panel.add(buttonOK);
 
-        JButton buttonClose = new JButton("Нет") {{
+        JButton buttonClose = new JButton("РќРµС‚") {{
             setBounds(160, 30, 80, 30);
         }};
         panel.add(buttonClose);

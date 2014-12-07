@@ -9,12 +9,12 @@ import java.util.List;
 
 public class DataService {
 
-    /** Путь к файлу в который происходит синхронизация данных */
+    /** РџСѓС‚СЊ Рє С„Р°Р№Р»Сѓ РІ РєРѕС‚РѕСЂС‹Р№ РїСЂРѕРёСЃС…РѕРґРёС‚ СЃРёРЅС…СЂРѕРЅРёР·Р°С†РёСЏ РґР°РЅРЅС‹С… */
     private static final String LOCATION_FILE_DATA = "C:\\Users\\Public\\SavePlans.ma";
 
 
     /**
-     * Заполняет данные из сохранённого файла с данными.
+     * Р—Р°РїРѕР»РЅСЏРµС‚ РґР°РЅРЅС‹Рµ РёР· СЃРѕС…СЂР°РЅС‘РЅРЅРѕРіРѕ С„Р°Р№Р»Р° СЃ РґР°РЅРЅС‹РјРё.
      */
     public static void readData() {
         try {
@@ -37,7 +37,7 @@ public class DataService {
     }
 
     /**
-     * Сохраняет файл с данными.
+     * РЎРѕС…СЂР°РЅСЏРµС‚ С„Р°Р№Р» СЃ РґР°РЅРЅС‹РјРё.
      */
     public static void serializableData() {
         try {

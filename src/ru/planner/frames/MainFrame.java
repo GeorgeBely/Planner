@@ -14,10 +14,10 @@ import java.util.Date;
 
 public class MainFrame extends JFrame {
 
-    /** Высота окна. */
+    /** Р’С‹СЃРѕС‚Р° РѕРєРЅР°. */
     private static final int WIDTH = 550;
 
-    /** Ширина окна. */
+    /** РЁРёСЂРёРЅР° РѕРєРЅР°. */
     private static final int HEIGHT = 300;
 
 
@@ -42,27 +42,27 @@ public class MainFrame extends JFrame {
         }};
         add(panel);
 
-        JButton buttonAdd = new JButton("Добавить задачи") {{
+        JButton buttonAdd = new JButton("Р”РѕР±Р°РІРёС‚СЊ Р·Р°РґР°С‡Рё") {{
             setBounds(270, 5, 220, 30);
         }};
         panel.add(buttonAdd);
 
-        JButton buttonViewOnDate = new JButton("Просмотреть задачи на день") {{
+        JButton buttonViewOnDate = new JButton("РџСЂРѕСЃРјРѕС‚СЂРµС‚СЊ Р·Р°РґР°С‡Рё РЅР° РґРµРЅСЊ") {{
             setBounds(270, 40, 220, 30);
         }};
         panel.add(buttonViewOnDate);
 
-        JButton buttonDelete = new JButton("Удалить/Изменить задачу") {{
+        JButton buttonDelete = new JButton("РЈРґР°Р»РёС‚СЊ/РР·РјРµРЅРёС‚СЊ Р·Р°РґР°С‡Сѓ") {{
             setBounds(270, 75, 220, 30);
         }};
         panel.add(buttonDelete);
 
-        JButton buttonView = new JButton("Просмотреть все задачи") {{
+        JButton buttonView = new JButton("РџСЂРѕСЃРјРѕС‚СЂРµС‚СЊ РІСЃРµ Р·Р°РґР°С‡Рё") {{
             setBounds(270, 110, 220, 30);
         }};
         panel.add(buttonView);
 
-        JButton buttonClear = new JButton("Очистить") {{
+        JButton buttonClear = new JButton("РћС‡РёСЃС‚РёС‚СЊ") {{
             setBounds(270, 145, 220, 30);
         }};
         panel.add(buttonClear);
@@ -77,7 +77,7 @@ public class MainFrame extends JFrame {
         }};
         panel.add(scrollPane);
 
-        JLabel labelDate = new JLabel("Введите дату") {{
+        JLabel labelDate = new JLabel("Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ") {{
             setBounds(300, 180, 210, 15);
         }};
         panel.add(labelDate);
@@ -90,7 +90,7 @@ public class MainFrame extends JFrame {
 
         DataService.readData();
 
-        text.setText("Задачи на сегодня:\n");
+        text.setText("Р—Р°РґР°С‡Рё РЅР° СЃРµРіРѕРґРЅСЏ:\n");
         int count = 0;
         for (Message message : MessageAgent.massTask)
             if (DateUtils.dateAsOfToday(message.getDatePlan())) {
@@ -99,7 +99,7 @@ public class MainFrame extends JFrame {
                 count++;
             }
         if (count == 0)
-            text.setText("На сегодня планов нет.");
+            text.setText("РќР° СЃРµРіРѕРґРЅСЏ РїР»Р°РЅРѕРІ РЅРµС‚.");
 
         buttonAdd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -136,7 +136,7 @@ public class MainFrame extends JFrame {
         buttonView.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (MessageAgent.massTask.isEmpty()) {
-                    text.setText("Нет планов.");
+                    text.setText("РќРµС‚ РїР»Р°РЅРѕРІ.");
                 } else {
                     text.setText("");
                     for (Message message : MessageAgent.massTask) {

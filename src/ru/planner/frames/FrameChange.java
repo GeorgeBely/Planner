@@ -13,14 +13,14 @@ import javax.swing.*;
 
 class FrameChange extends JFrame {
 
-    /** Ширина окна */
+    /** РЁРёСЂРёРЅР° РѕРєРЅР° */
     private static final int WIDTH = 300;
 
-    /** Высота окна */
+    /** Р’С‹СЃРѕС‚Р° РѕРєРЅР° */
     private static final int HEIGHT = 380;
 
-    /** Наименование фрейма */
-    private static final String TITLE = "Изменить задачу";
+    /** РќР°РёРјРµРЅРѕРІР°РЅРёРµ С„СЂРµР№РјР° */
+    private static final String TITLE = "РР·РјРµРЅРёС‚СЊ Р·Р°РґР°С‡Сѓ";
 
 
     private JFormattedTextField datePlan;
@@ -48,7 +48,7 @@ class FrameChange extends JFrame {
         }};
         add(panel);
 
-        JLabel labelDate = new JLabel("Введите нужную дату") {{
+        JLabel labelDate = new JLabel("Р’РІРµРґРёС‚Рµ РЅСѓР¶РЅСѓСЋ РґР°С‚Сѓ") {{
             setBounds(15, 0, 300, 15);
         }};
         panel.add(labelDate);
@@ -59,7 +59,7 @@ class FrameChange extends JFrame {
         }};
         panel.add(datePlan);
 
-        JLabel labelTheme = new JLabel("Введите тему") {{
+        JLabel labelTheme = new JLabel("Р’РІРµРґРёС‚Рµ С‚РµРјСѓ") {{
             setBounds(110, 40, 100, 15);
         }};
         panel.add(labelTheme);
@@ -69,7 +69,7 @@ class FrameChange extends JFrame {
         }};
         panel.add(theme);
 
-        JLabel labelText = new JLabel("Введите текст") {{
+        JLabel labelText = new JLabel("Р’РІРµРґРёС‚Рµ С‚РµРєСЃС‚") {{
             setBounds(110, 80, 100, 15);
         }};
         panel.add(labelText);
@@ -79,7 +79,7 @@ class FrameChange extends JFrame {
         }};
         panel.add(text);
 
-        JLabel labelTime = new JLabel("Введите дату вывода сообщения:") {{
+        JLabel labelTime = new JLabel("Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ РІС‹РІРѕРґР° СЃРѕРѕР±С‰РµРЅРёСЏ:") {{
             setBounds(30, 260, 250, 20);
         }};
         panel.add(labelTime);
@@ -90,12 +90,12 @@ class FrameChange extends JFrame {
         }};
         panel.add(dateMention);
 
-        JButton buttonOK = new JButton("Изменить") {{
+        JButton buttonOK = new JButton("РР·РјРµРЅРёС‚СЊ") {{
             setBounds(90, 305, 90, 30);
         }};
         panel.add(buttonOK);
 
-        JButton buttonClose = new JButton("Закрыть") {{
+        JButton buttonClose = new JButton("Р—Р°РєСЂС‹С‚СЊ") {{
             setBounds(190, 305, 90, 30);
         }};
         panel.add(buttonClose);

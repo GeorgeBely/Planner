@@ -12,14 +12,14 @@ import javax.swing.*;
 
 public class FrameDel extends JFrame {
 
-    /** Ширина окна */
+    /** РЁРёСЂРёРЅР° РѕРєРЅР° */
     private static final int WIDTH = 300;
 
-    /** Высота окна */
+    /** Р’С‹СЃРѕС‚Р° РѕРєРЅР° */
     private static final int HEIGHT = 280;
 
-    /** Наименование фрейма */
-    private static final String TITLE = "Удалить/Изменить задачу";
+    /** РќР°РёРјРµРЅРѕРІР°РЅРёРµ С„СЂРµР№РјР° */
+    private static final String TITLE = "РЈРґР°Р»РёС‚СЊ/РР·РјРµРЅРёС‚СЊ Р·Р°РґР°С‡Сѓ";
 
     private static TextField textNum;
     private static TextArea text;
@@ -40,7 +40,7 @@ public class FrameDel extends JFrame {
         }};
         add(panel);
 
-        JLabel labelText = new JLabel("События") {{
+        JLabel labelText = new JLabel("РЎРѕР±С‹С‚РёСЏ") {{
             setBounds(110, 5, 100, 15);
         }};
         panel.add(labelText);
@@ -51,7 +51,7 @@ public class FrameDel extends JFrame {
         }};
         panel.add(text);
 
-        JLabel labelDate = new JLabel("Введите нужный номер") {{
+        JLabel labelDate = new JLabel("Р’РІРµРґРёС‚Рµ РЅСѓР¶РЅС‹Р№ РЅРѕРјРµСЂ") {{
             setBounds(30, 180, 140, 15);
         }};
         panel.add(labelDate);
@@ -61,17 +61,17 @@ public class FrameDel extends JFrame {
         }};
         panel.add(textNum);
 
-        JButton buttonChange = new JButton("Изменить") {{
+        JButton buttonChange = new JButton("РР·РјРµРЅРёС‚СЊ") {{
             setBounds(5, 205, 90, 30);
         }};
         panel.add(buttonChange);
 
-        JButton buttonDel = new JButton("Удалить") {{
+        JButton buttonDel = new JButton("РЈРґР°Р»РёС‚СЊ") {{
             setBounds(105, 205, 85, 30);
         }};
         panel.add(buttonDel);
 
-        JButton buttonClose = new JButton("Закрыть") {{
+        JButton buttonClose = new JButton("Р—Р°РєСЂС‹С‚СЊ") {{
             setBounds(200, 205, 90, 30);
         }};
         panel.add(buttonClose);

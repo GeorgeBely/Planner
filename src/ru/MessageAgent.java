@@ -9,16 +9,16 @@ import java.util.List;
 
 public class MessageAgent implements Serializable {
 
-    /** При {true} использовать Timer оповещений */
+    /** РџСЂРё {true} РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ Timer РѕРїРѕРІРµС‰РµРЅРёР№ */
     public static boolean useTimer = true;
 
-    /** При {true} отображать время в заголовке программы */
+    /** РџСЂРё {true} РѕС‚РѕР±СЂР°Р¶Р°С‚СЊ РІСЂРµРјСЏ РІ Р·Р°РіРѕР»РѕРІРєРµ РїСЂРѕРіСЂР°РјРјС‹ */
     public static boolean useClock = true;
 
-    /** Сохранённые задачи */
+    /** РЎРѕС…СЂР°РЅС‘РЅРЅС‹Рµ Р·Р°РґР°С‡Рё */
     public static List<Message> massTask = new ArrayList<Message>();
 
-    /** Основной фрейм */
+    /** РћСЃРЅРѕРІРЅРѕР№ С„СЂРµР№Рј */
     public static MainFrame mainFrame;
 
 
